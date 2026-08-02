@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" role="img" aria-labelledby="profileTitle">
+  <title id="profileTitle">Illustrated avatar of Rishabh Shukla</title>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e3a5f"/>
+      <stop offset="100%" stop-color="#2563eb"/>
+    </linearGradient>
+  </defs>
+  <rect width="320" height="320" rx="160" fill="url(#bg)"/>
+  <circle cx="160" cy="118" r="58" fill="#f8fafc"/>
+  <path d="M56 286c18-52 62-82 104-82s86 30 104 82" fill="#f8fafc"/>
+  <circle cx="142" cy="112" r="6" fill="#1e293b"/>
+  <circle cx="178" cy="112" r="6" fill="#1e293b"/>
+  <path d="M145 138q15 12 30 0" fill="none" stroke="#1e293b" stroke-width="4" stroke-linecap="round"/>
+</svg>
