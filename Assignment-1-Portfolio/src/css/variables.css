@@ -1,0 +1,82 @@
+/* =========================================================================
+   CSS Custom Properties / Design Tokens
+   Centralizes all theme colors, typography definitions, box shadows, and 
+   layout dimensions to ensure design consistency and simple maintenance.
+   ========================================================================= */
+:root {
+  /* Primary dark theme palette: terminal charcoal aesthetics */
+  --color-bg: #0e1117;                  /* Deep slate body background */
+  --color-surface: #151921;             /* Card and panel containers */
+  --color-surface-glass: rgba(14, 17, 23, 0.85); /* Semi-transparent header overlay for blur effect */
+  --color-surface-alt: #1c212c;         /* Secondary badge and background contrast tones */
+  --color-surface-hover: #232a37;       /* Interactive interactive state backgrounds */
+  
+  /* Text readability tokens (high contrast white/grey against dark backgrounds) */
+  --color-text: #ededed;                /* Primary readable white text */
+  --color-text-muted: #8b949e;          /* Secondary descriptive gray text */
+  
+  /* Accent and interactive interactive feedback tones */
+  --color-primary: #58a6ff;             /* Electric cyan/blue accent for key actions and links */
+  --color-primary-hover: #79c0ff;       /* Brighter tint on hover states */
+  --color-border: rgba(255, 255, 255, 0.08); /* Subtle container divider borders */
+  --color-border-hover: rgba(255, 255, 255, 0.22); /* Stronger border brightness on hover */
+  --color-success: #3fb950;             /* Positive confirmation tone for valid form actions */
+  --color-error: #f85149;               /* Warning tone for incomplete or invalid form entries */
+  
+  --color-btn-primary-bg: #ededed;      /* Primary button background */
+  --color-btn-primary-text: #0e1117;    /* Primary button text */
+
+  /* Universal developer typography: using monospaced font family for clean terminal look */
+  --font-body: "Share Tech Mono", monospace, Consolas, "Courier New";
+  --font-heading: "Share Tech Mono", monospace, Consolas, "Courier New";
+  --font-mono: "Share Tech Mono", monospace, Consolas, "Courier New";
+
+  /* Consistent spacing unit scale based on Rem values (1rem = 16px default) */
+  --space-xs: 0.5rem;   /* 8px - very tight internal gaps */
+  --space-sm: 0.75rem;  /* 12px - list and item margins */
+  --space-md: 1rem;     /* 16px - standard component padding */
+  --space-lg: 1.5rem;   /* 24px - larger card padding and gaps */
+  --space-xl: 2rem;     /* 32px - section headings and button rows */
+  --space-2xl: 3rem;    /* 48px - multi-column layout grid separations */
+  --space-3xl: 4rem;    /* 64px - major section vertical margins */
+
+  /* Component border curvature system */
+  --radius-sm: 0.375rem; /* Small interactive pills and inputs */
+  --radius-md: 0.5rem;   /* Standard card container boxes */
+  --radius-lg: 0.75rem;  /* Hero image and featured content framing */
+  --radius-full: 9999px; /* Complete circular rounding for scrollbars and badges */
+
+  /* Elevation box-shadow tokens for depth perception */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 12px 28px rgba(0, 0, 0, 0.5);
+
+  /* Layout structural constraints and smooth animation speeds */
+  --header-height: 4.5rem; /* Fixed height for sticky navigation bar calculation */
+  --content-width: 68rem;  /* Maximum standard width (1088px) for desktop containers */
+  --transition-base: 0.2s ease; /* Default transition speed for color and border changes */
+  --transition-smooth: 0.3s cubic-bezier(0.16, 1, 0.3, 1); /* Smooth eased curves for dropdowns */
+}
+
+/* =========================================================================
+   Light Theme Overrides
+   Activated when [data-theme="light"] is applied to the root element.
+   ========================================================================= */
+[data-theme="light"] {
+  --color-bg: #f6f8fa;
+  --color-surface: #ffffff;
+  --color-surface-glass: rgba(255, 255, 255, 0.85);
+  --color-surface-alt: #f3f4f6;
+  --color-surface-hover: #e5e7eb;
+  
+  --color-text: #24292f;
+  --color-text-muted: #57606a;
+  
+  --color-primary: #0969da;
+  --color-primary-hover: #0550ae;
+  --color-border: rgba(0, 0, 0, 0.1);
+  --color-border-hover: rgba(0, 0, 0, 0.2);
+  
+  --color-btn-primary-bg: #0969da;
+  --color-btn-primary-text: #ffffff;
+}

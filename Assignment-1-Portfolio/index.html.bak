@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Personal portfolio of Rishabh Shukla — Full Stack Developer and Competitive Programmer (LeetCode Knight, Codeforces Specialist).">
+    <title>Rishabh Shukla | Software Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <!-- Keyboard Accessible Bypass Link for Screen Readers and TAB navigation -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <!-- Top Sticky Navigation Header -->
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="#introduction">Rishabh Shukla</a>
+
+        <!-- Hamburger toggle button: visible only on tablet/mobile screens via responsive CSS -->
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="primary-navigation"
+          aria-label="Toggle navigation menu"
+        >
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+        </button>
+
+        <!-- Primary semantic navigation: link highlighting controlled dynamically via IntersectionObserver -->
+        <nav class="site-nav" id="primary-navigation" aria-label="Primary">
+          <ul class="nav-list">
+            <li><a class="nav-link" href="#introduction">Home</a></li>
+            <li><a class="nav-link" href="#about">About</a></li>
+            <li><a class="nav-link" href="#education">Education</a></li>
+            <li><a class="nav-link" href="#skills">Skills</a></li>
+            <li><a class="nav-link" href="#projects">Projects</a></li>
+            <li><a class="nav-link" href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+      <!-- Hero Introduction Section -->
+      <section class="section hero container" id="introduction" aria-labelledby="intro-heading">
+        <!-- Left Column: Biography Summary and Primary Action Buttons -->
+        <div class="hero-content">
+          <p class="hero-subtitle">Full Stack Developer &amp; Competitive Programmer</p>
+          <!-- Single page H1 tag to enforce strict SEO and screen-reader hierarchy -->
+          <h1 class="hero-title" id="intro-heading">Rishabh Shukla</h1>
+          <p>
+            I architect resilient web applications and systems with clean, reliable code. Focused on scalable payment workflows, real-time data pipelines, normalized relational database modeling, and competitive algorithm design.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projects">Explore Projects</a>
+            <a class="btn btn-secondary" href="#contact">Get In Touch</a>
+          </div>
+        </div>
+
+        <!-- Right Column: Developer Avatar Framing -->
+        <div class="hero-image-container">
+          <img
+            class="hero-image"
+            src="assets/images/profile.svg"
+            width="320"
+            height="320"
+            alt="Minimal developer avatar representing Rishabh Shukla"
+          >
+        </div>
+      </section>
+
+      <!-- About Me & Key Metrics Section -->
+      <section class="section container" id="about" aria-labelledby="about-heading">
+        <div class="section-heading">
+          <h2 id="about-heading">About Me</h2>
+          <p>A structured approach to engineering production web systems and mastering computational algorithms.</p>
+        </div>
+
+        <!-- Asymmetric two-column Grid layout: Narrative text on left, focus highlight cards on right -->
+        <div class="about-grid">
+          <article class="about-text">
+            <p>
+              My development experience emphasizes building high-performance full stack platforms with modern JavaScript ecosystems. I have hands-on experience deploying modular applications utilizing React, Next.js, Express.js, MongoDB, Redis, and background queuing architectures.
+            </p>
+            <p>
+              In competitive programming, I consistently solve complex algorithmic problems under tight constraints. With ratings of 1892 on LeetCode (Knight), 1510 on Codeforces (Specialist), and 1508 on CodeChef, I have a deep functional foundation in graph theory, dynamic programming, and data structure optimizations.
+            </p>
+          </article>
+
+          <aside class="about-highlights" aria-label="Key highlights">
+            <div class="highlight-card">
+              <h3>Competitive Programming</h3>
+              <p>Codeforces Specialist (1510) · LeetCode Knight (1892) · CodeChef 2-Star (1508).</p>
+            </div>
+            <div class="highlight-card">
+              <h3>Core Technical Focus</h3>
+              <p>Full Stack Architecture, WebSockets (Socket.io), Background Job Queues (Redis/BullMQ), and ACID Relational Database Design.</p>
+            </div>
+          </aside>
+        </div>
+
+        <!-- Competitive programming global ratings summary grid -->
+        <ul class="stat-list" aria-label="Key metrics">
+          <li class="stat-item">
+            <strong>1892</strong>
+            <span>LeetCode Rating (Knight)</span>
+          </li>
+          <li class="stat-item">
+            <strong>1510</strong>
+            <span>Codeforces (Specialist)</span>
+          </li>
+          <li class="stat-item">
+            <strong>1508</strong>
+            <span>CodeChef Rating (2-Star)</span>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Academic Background & Organizational Experience -->
+      <section class="section container" id="education" aria-labelledby="education-heading">
+        <div class="section-heading">
+          <h2 id="education-heading">Education &amp; Experience</h2>
+          <p>Academic coursework and concise organizational experience.</p>
+        </div>
+
+        <div class="education-layout">
+          <!-- Left Column: Academic Credentials Timeline -->
+          <div class="edu-section">
+            <h3 class="edu-section-title">Academic Credentials</h3>
+            <article class="timeline-card">
+              <div class="timeline-header">
+                <h3>National Institute of Technology, Warangal</h3>
+                <span class="timeline-date">2024 — 2028</span>
+              </div>
+              <div class="timeline-subtitle">B.Tech in Computer Science and Engineering</div>
+              <ul>
+                <li><strong>Current Standing:</strong> CGPA 7.93 / 10.00.</li>
+                <li><strong>Core Coursework:</strong> Data Structures and Algorithms (C++), Object-Oriented Programming (Java), Database Management Systems (DBMS), and Computer Networks.</li>
+              </ul>
+            </article>
+          </div>
+
+          <!-- Right Column: Extracurricular Leadership Responsibilities -->
+          <div class="edu-section">
+            <h3 class="edu-section-title">Leadership &amp; Responsibility</h3>
+            <div class="leadership-list">
+              <article class="leadership-item">
+                <h3>Technozion 2025, NITW</h3>
+                <p>PR &amp; Outreach Team Member &mdash; Coordinated external academic institute communication and guest speaker scheduling for the national tech symposium.</p>
+              </article>
+
+              <article class="leadership-item">
+                <h3>Annual School Fest</h3>
+                <p>Event Coordinator &mdash; Managed multi-day stage logistics, volunteer schedules, and time management protocols.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Technical Skills Overview -->
+      <section class="section container" id="skills" aria-labelledby="skills-heading">
+        <div class="section-heading">
+          <h2 id="skills-heading">Technical Skills</h2>
+          <p>Languages, architectural frameworks, databases, and tooling utilized in software builds.</p>
+        </div>
+
+        <div class="skills-grid">
+          <article class="skill-group">
+            <h3>Programming Languages</h3>
+            <ul class="skill-list">
+              <li><span class="tag">C++</span></li>
+              <li><span class="tag">JavaScript (ES6+)</span></li>
+              <li><span class="tag">Java</span></li>
+              <li><span class="tag">SQL</span></li>
+              <li><span class="tag">R</span></li>
+              <li><span class="tag">TypeScript / Node</span></li>
+            </ul>
+          </article>
+
+          <article class="skill-group">
+            <h3>Frameworks &amp; Libraries</h3>
+            <ul class="skill-list">
+              <li><span class="tag">Next.js</span></li>
+              <li><span class="tag">React</span></li>
+              <li><span class="tag">Node.js</span></li>
+              <li><span class="tag">Express.js</span></li>
+              <li><span class="tag">Socket.io</span></li>
+              <li><span class="tag">NextAuth.js</span></li>
+              <li><span class="tag">BullMQ</span></li>
+              <li><span class="tag">Razorpay SDK</span></li>
+            </ul>
+          </article>
+
+          <article class="skill-group">
+            <h3>Cloud &amp; Databases</h3>
+            <ul class="skill-list">
+              <li><span class="tag">MongoDB</span></li>
+              <li><span class="tag">Oracle SQL</span></li>
+              <li><span class="tag">Redis</span></li>
+              <li><span class="tag">2dsphere Indexing</span></li>
+              <li><span class="tag">BCNF Normalization</span></li>
+              <li><span class="tag">ACID Transactions</span></li>
+            </ul>
+          </article>
+
+          <article class="skill-group">
+            <h3>Developer Tools</h3>
+            <ul class="skill-list">
+              <li><span class="tag">VS Code</span></li>
+              <li><span class="tag">Git</span></li>
+              <li><span class="tag">GitHub Actions</span></li>
+              <li><span class="tag">Postman</span></li>
+              <li><span class="tag">W3C Validator</span></li>
+              <li><span class="tag">Chrome DevTools</span></li>
+            </ul>
+          </article>
+
+          <article class="skill-group">
+            <h3>Academic Coursework</h3>
+            <ul class="skill-list">
+              <li><span class="tag">Data Structures &amp; Algorithms</span></li>
+              <li><span class="tag">Object-Oriented Programming</span></li>
+              <li><span class="tag">Database Management Systems</span></li>
+              <li><span class="tag">Relational Modeling</span></li>
+            </ul>
+          </article>
+
+          <article class="skill-group">
+            <h3>Core Competencies</h3>
+            <ul class="skill-list">
+              <li><span class="tag">Competitive Programming</span></li>
+              <li><span class="tag">Full Stack Architecture</span></li>
+              <li><span class="tag">Critical Thinking</span></li>
+              <li><span class="tag">System Debugging</span></li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <!-- Featured Engineering Projects -->
+      <section class="section container" id="projects" aria-labelledby="projects-heading">
+        <div class="section-heading">
+          <h2 id="projects-heading">Featured Projects</h2>
+          <p>Production systems and scalable applications designed and built from scratch.</p>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Project Card 1: Supportly (Full-Stack Creator Monetization Platform) -->
+          <article class="project-card">
+            <div class="project-image-wrapper">
+              <img
+                src="assets/images/project-supportly.png"
+                width="640"
+                height="360"
+                alt="Preview mockup for Supportly creator payments platform"
+              >
+            </div>
+            <div class="project-content">
+              <h3>Supportly</h3>
+              <p class="project-description">
+                A full-stack creator monetization platform where fans support creators through custom monetized profiles and seamless one-time payments. Engineered GitHub OAuth authentication via NextAuth.js featuring automatic unique-username generation and dynamic route protection. Integrated a signature-verified Razorpay payment flow with auto-synced transaction records.
+              </p>
+              <ul class="project-tags">
+                <li><span class="tag">Next.js</span></li>
+                <li><span class="tag">React</span></li>
+                <li><span class="tag">MongoDB</span></li>
+                <li><span class="tag">NextAuth.js</span></li>
+                <li><span class="tag">Razorpay</span></li>
+              </ul>
+              <div class="project-actions">
+                <a class="btn btn-github" href="https://github.com/shukla6767/supportly" target="_blank" rel="noopener noreferrer">
+                  <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                  </svg>
+                  Source Code
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project Card 2: FestFlow (BCNF Normalized Relational Database System) -->
+          <article class="project-card">
+            <div class="project-image-wrapper">
+              <img
+                src="assets/images/project-festflow.png"
+                width="640"
+                height="360"
+                alt="Architectural graphic for FestFlow database system"
+              >
+            </div>
+            <div class="project-content">
+              <h3>FestFlow</h3>
+              <p class="project-description">
+                A BCNF-normalized relational database architecture designed to power large-scale festival operations. Features 27 independent tables, 40+ formal relationships, and 15+ enforced business rules covering event scheduling, team formation, logistics, and sponsorships. Built with robust stored procedures, SQL triggers, automated views, ACID-compliant transactions, and 50+ analytical queries with index-driven query optimization.
+              </p>
+              <ul class="project-tags">
+                <li><span class="tag">Oracle SQL</span></li>
+                <li><span class="tag">BCNF Normalization</span></li>
+                <li><span class="tag">Stored Procedures</span></li>
+                <li><span class="tag">SQL Triggers</span></li>
+                <li><span class="tag">Query Optimization</span></li>
+              </ul>
+              <div class="project-actions">
+                <a class="btn btn-github" href="https://github.com/shukla6767/festflow" target="_blank" rel="noopener noreferrer">
+                  <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                  </svg>
+                  Source Code
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project Card 3: MediQ (Real-time Hospital Queue Triage Platform) -->
+          <article class="project-card">
+            <div class="project-image-wrapper">
+              <img
+                src="assets/images/project-mediq.png"
+                width="640"
+                height="360"
+                alt="Preview mockup for MediQ real-time hospital queue system"
+              >
+            </div>
+            <div class="project-content">
+              <h3>MediQ</h3>
+              <p class="project-description">
+                A real-time hospital triage and queue management system engineered with Socket.io for instantaneous token status updates. Resolved concurrent queue race conditions using atomic MongoDB operations and implemented secure JWT-based Role-Based Access Control (RBAC) across Patient, Doctor, Receptionist, and Admin workflows. Features Redis &amp; BullMQ background task jobs for automated expired-token purging and scheduled notification triggers, alongside Google Maps API integration with MongoDB 2dsphere geospatial indexing for location discovery.
+              </p>
+              <ul class="project-tags">
+                <li><span class="tag">Next.js</span></li>
+                <li><span class="tag">Express.js</span></li>
+                <li><span class="tag">Socket.io</span></li>
+                <li><span class="tag">Redis &amp; BullMQ</span></li>
+                <li><span class="tag">MongoDB 2dsphere</span></li>
+              </ul>
+              <div class="project-actions">
+                <a class="btn btn-github" href="https://github.com/shukla6767/mediq" target="_blank" rel="noopener noreferrer">
+                  <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                  </svg>
+                  Source Code
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Contact Information & Direct Message Form -->
+      <section class="section container" id="contact" aria-labelledby="contact-heading">
+        <div class="section-heading">
+          <h2 id="contact-heading">Get In Touch</h2>
+          <p>Interested in collaborating on technical systems or software development opportunities? Drop a direct message below.</p>
+        </div>
+
+        <div class="contact-layout">
+          <!-- Left Sidebar: Direct Communication Channels & Social Coding Profiles -->
+          <aside class="contact-details" aria-label="Contact information">
+            <div class="contact-item">
+              <h3>Primary Email</h3>
+              <a class="social-link" href="mailto:rishabh.shukla.mail@gmail.com">rishabh.shukla.mail@gmail.com</a>
+            </div>
+            <div class="contact-item">
+              <h3>Academic Email</h3>
+              <a class="social-link" href="mailto:rs24csb0b59@student.nitw.ac.in">rs24csb0b59@student.nitw.ac.in</a>
+            </div>
+            <div class="contact-item">
+              <h3>Phone Number</h3>
+              <a class="social-link" href="tel:+919355251899">+91-9355251899</a>
+            </div>
+            <div class="contact-item">
+              <h3>GitHub</h3>
+              <a class="social-link" href="https://github.com/shukla6767" target="_blank" rel="noopener noreferrer">github.com &nearr;</a>
+            </div>
+            <div class="contact-item">
+              <h3>LeetCode</h3>
+              <a class="social-link" href="https://leetcode.com/u/shukla00765/" target="_blank" rel="noopener noreferrer">leetcode.com &nearr;</a>
+            </div>
+            <div class="contact-item">
+              <h3>Codeforces</h3>
+              <a class="social-link" href="https://codeforces.com/profile/shukla007" target="_blank" rel="noopener noreferrer">codeforces.com &nearr;</a>
+            </div>
+            <div class="contact-item">
+              <h3>CodeChef</h3>
+              <a class="social-link" href="https://www.codechef.com/users/xgamer" target="_blank" rel="noopener noreferrer">codechef.com &nearr;</a>
+            </div>
+          </aside>
+
+          <!-- Right Column: Client-Side Validated Direct Message Inquiry Form -->
+          <!-- novalidate attribute suppresses default browser popups to allow our Javascript handlers to provide inline UX -->
+          <form class="contact-form" id="contact-form" novalidate>
+            <div class="form-group">
+              <label for="contact-name">Full Name</label>
+              <input
+                id="contact-name"
+                name="name"
+                type="text"
+                autocomplete="name"
+                required
+                minlength="2"
+                maxlength="80"
+                placeholder="Enter your full name"
+              >
+              <span class="form-error" id="name-error" role="alert"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="contact-email">Email Address</label>
+              <input
+                id="contact-email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                required
+                placeholder="email@example.com"
+              >
+              <span class="form-error" id="email-error" role="alert"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="contact-subject">Subject</label>
+              <input
+                id="contact-subject"
+                name="subject"
+                type="text"
+                required
+                minlength="3"
+                maxlength="120"
+                placeholder="Opportunity or inquiry topic"
+              >
+              <span class="form-error" id="subject-error" role="alert"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="contact-message">Message</label>
+              <textarea
+                id="contact-message"
+                name="message"
+                rows="5"
+                required
+                minlength="10"
+                maxlength="1000"
+                placeholder="Write your detailed inquiry here..."
+              ></textarea>
+              <span class="form-error" id="message-error" role="alert"></span>
+            </div>
+
+            <button class="btn btn-primary" type="submit">Send Message</button>
+            <p class="form-success" id="form-success" hidden role="status">
+              Thank you! Your message has been validated and is ready for sending.
+            </p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- Site Footer -->
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>&copy; <span id="current-year">2026</span> Rishabh Shukla. B.Tech CSE at NIT Warangal. Built with HTML5, CSS3 &amp; ES6 JS.</p>
+        <nav class="footer-links" aria-label="Footer">
+          <a href="#introduction">Home</a>
+          <a href="#about">About</a>
+          <a href="#education">Education</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </footer>
+
+    <!-- Modular ES6 Scripts -->
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>
