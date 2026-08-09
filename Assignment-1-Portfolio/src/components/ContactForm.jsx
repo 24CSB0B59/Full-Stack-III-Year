@@ -84,19 +84,19 @@ const ContactForm = () => {
           </div>
           <div className="contact-item">
             <h3>GitHub</h3>
-            <a className="social-link" href="https://github.com/shukla6767" target="_blank" rel="noopener noreferrer">github.com &nearr;</a>
+            <a className="social-link" href="https://github.com/shukla6767" target="_blank" rel="noopener noreferrer">github.com</a>
           </div>
           <div className="contact-item">
             <h3>LeetCode</h3>
-            <a className="social-link" href="https://leetcode.com/u/shukla00765/" target="_blank" rel="noopener noreferrer">leetcode.com &nearr;</a>
+            <a className="social-link" href="https://leetcode.com/u/shukla00765/" target="_blank" rel="noopener noreferrer">leetcode.com </a>
           </div>
           <div className="contact-item">
             <h3>Codeforces</h3>
-            <a className="social-link" href="https://codeforces.com/profile/shukla007" target="_blank" rel="noopener noreferrer">codeforces.com &nearr;</a>
+            <a className="social-link" href="https://codeforces.com/profile/shukla007" target="_blank" rel="noopener noreferrer">codeforces.com</a>
           </div>
           <div className="contact-item">
             <h3>CodeChef</h3>
-            <a className="social-link" href="https://www.codechef.com/users/xgamer" target="_blank" rel="noopener noreferrer">codechef.com &nearr;</a>
+            <a className="social-link" href="https://www.codechef.com/users/xgamer" target="_blank" rel="noopener noreferrer">codechef.com</a>
           </div>
         </aside>
 
