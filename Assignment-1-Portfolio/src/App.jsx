@@ -1,55 +1,33 @@
-import React, { useState, useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
-
-// Shared Layout Components
+import React from 'react';
 import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+import About from './components/About';
+import Education from './components/Education';
+import Skills from './components/Skills';
+import ProjectsPage from './components/ProjectsPage';
+import ContactForm from './components/ContactForm';
 import Footer from './components/Footer';
 
-// Page Components
-import Home from './pages/Home';
-import AboutPage from './pages/AboutPage';
-import Projects from './pages/Projects';
-import Contact from './pages/Contact';
-import ProjectDetail from './pages/ProjectDetail';
-import NotFound from './pages/NotFound';
+import { projects } from './data/projects';
 
 function App() {
-  // Initialize theme from localStorage or default to 'dark'
-  const [theme, setTheme] = useState(() => {
-    const savedTheme = localStorage.getItem('portfolio-theme');
-    return savedTheme ? savedTheme : 'dark';
-  });
-
-  // Sync theme state with the document root attribute and localStorage
-  useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('portfolio-theme', theme);
-  }, [theme]);
-
-  const toggleTheme = () => {
-    setTheme(prev => prev === 'dark' ? 'light' : 'dark');
-  };
-
   return (
     <>
+      {/* Keyboard Accessible Bypass Link for Screen Readers and TAB navigation */}
       <a className="skip-link" href="#main-content">Skip to main content</a>
       
-      {/* Persistent Navigation */}
-      <Navbar theme={theme} toggleTheme={toggleTheme} />
+      <Navbar />
       
       <main id="main-content">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/projects/:projectId" element={<ProjectDetail />} />
-          <Route path="/contact" element={<Contact />} />
-          {/* Catch-all route for 404 Not Found */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <Hero />
+        <About />
+        <Education />
+        <Skills />
+        {/* Pass projects data to ProjectsPage to demonstrate prop drilling */}
+        <ProjectsPage data={projects} />
+        <ContactForm />
       </main>
       
-      {/* Persistent Footer */}
       <Footer />
     </>
   );

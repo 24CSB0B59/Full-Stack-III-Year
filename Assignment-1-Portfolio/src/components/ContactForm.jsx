@@ -53,13 +53,6 @@ const ContactForm = () => {
     }
   };
 
-  const isFormValid = 
-    formData.name.trim().length >= 2 &&
-    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email) &&
-    formData.subject.trim().length >= 3 &&
-    formData.message.trim().length >= 10 &&
-    Object.values(errors).every(err => err === '');
-
   return (
     <section className="section container" id="contact" aria-labelledby="contact-heading">
       <div className="section-heading">
@@ -84,19 +77,19 @@ const ContactForm = () => {
           </div>
           <div className="contact-item">
             <h3>GitHub</h3>
-            <a className="social-link" href="https://github.com/shukla6767" target="_blank" rel="noopener noreferrer">github.com</a>
+            <a className="social-link" href="https://github.com/shukla6767" target="_blank" rel="noopener noreferrer">github.com &nearr;</a>
           </div>
           <div className="contact-item">
             <h3>LeetCode</h3>
-            <a className="social-link" href="https://leetcode.com/u/shukla00765/" target="_blank" rel="noopener noreferrer">leetcode.com </a>
+            <a className="social-link" href="https://leetcode.com/u/shukla00765/" target="_blank" rel="noopener noreferrer">leetcode.com &nearr;</a>
           </div>
           <div className="contact-item">
             <h3>Codeforces</h3>
-            <a className="social-link" href="https://codeforces.com/profile/shukla007" target="_blank" rel="noopener noreferrer">codeforces.com</a>
+            <a className="social-link" href="https://codeforces.com/profile/shukla007" target="_blank" rel="noopener noreferrer">codeforces.com &nearr;</a>
           </div>
           <div className="contact-item">
             <h3>CodeChef</h3>
-            <a className="social-link" href="https://www.codechef.com/users/xgamer" target="_blank" rel="noopener noreferrer">codechef.com</a>
+            <a className="social-link" href="https://www.codechef.com/users/xgamer" target="_blank" rel="noopener noreferrer">codechef.com &nearr;</a>
           </div>
         </aside>
 
@@ -160,14 +153,7 @@ const ContactForm = () => {
             <span className="form-error" role="alert">{errors.message}</span>
           </div>
 
-          <button 
-            className="btn btn-primary" 
-            type="submit" 
-            disabled={!isFormValid}
-            style={{ opacity: isFormValid ? 1 : 0.5, cursor: isFormValid ? 'pointer' : 'not-allowed' }}
-          >
-            Send Message
-          </button>
+          <button className="btn btn-primary" type="submit">Send Message</button>
           
           {isSuccess && (
             <p className="form-success" role="status">

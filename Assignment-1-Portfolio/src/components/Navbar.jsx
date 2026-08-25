@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink, Link } from 'react-router-dom';
 
-const Navbar = ({ theme, toggleTheme }) => {
+const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('introduction');
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -12,38 +12,36 @@ const Navbar = ({ theme, toggleTheme }) => {
     setIsOpen(false);
   };
 
-  // Close mobile menu automatically if window resizes to desktop width
+  // IntersectionObserver for active link highlighting
   useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth > 768 && isOpen) {
-        setIsOpen(false);
-      }
-    };
-
-    window.addEventListener('resize', handleResize);
+    const sections = document.querySelectorAll('main section[id]');
     
-    // Cleanup function to remove the event listener on unmount
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, [isOpen]);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      {
+        root: null,
+        rootMargin: '-40% 0px -45% 0px',
+        threshold: 0,
+      }
+    );
 
-  // CSS for active NavLink state mapping
-  const navLinkClass = ({ isActive }) => isActive ? "nav-link is-active" : "nav-link";
+    sections.forEach((section) => observer.observe(section));
+
+    return () => {
+      sections.forEach((section) => observer.unobserve(section));
+    };
+  }, []);
 
   return (
     <header className="site-header">
       <div className="container header-inner">
-        <Link className="brand" to="/" onClick={closeMenu}>Rishabh Shukla</Link>
-
-        <button 
-          className="btn btn-secondary" 
-          onClick={toggleTheme} 
-          aria-label="Toggle dark/light theme"
-          style={{ padding: '0.4rem 0.8rem', marginLeft: 'auto', marginRight: '1rem', fontSize: '1.2rem', background: 'transparent', border: 'none' }}
-        >
-          {theme === 'dark' ? '☀️' : '🌙'}
-        </button>
+        <a className="brand" href="#introduction">Rishabh Shukla</a>
 
         <button
           className={`nav-toggle ${isOpen ? 'is-active' : ''}`}
@@ -60,10 +58,12 @@ const Navbar = ({ theme, toggleTheme }) => {
 
         <nav className={`site-nav ${isOpen ? 'is-open' : ''}`} id="primary-navigation" aria-label="Primary">
           <ul className="nav-list">
-            <li><NavLink className={navLinkClass} to="/" onClick={closeMenu}>Home</NavLink></li>
-            <li><NavLink className={navLinkClass} to="/about" onClick={closeMenu}>About</NavLink></li>
-            <li><NavLink className={navLinkClass} to="/projects" onClick={closeMenu}>Projects</NavLink></li>
-            <li><NavLink className={navLinkClass} to="/contact" onClick={closeMenu}>Contact</NavLink></li>
+            <li><a className={`nav-link ${activeSection === 'introduction' ? 'is-active' : ''}`} href="#introduction" onClick={closeMenu}>Home</a></li>
+            <li><a className={`nav-link ${activeSection === 'about' ? 'is-active' : ''}`} href="#about" onClick={closeMenu}>About</a></li>
+            <li><a className={`nav-link ${activeSection === 'education' ? 'is-active' : ''}`} href="#education" onClick={closeMenu}>Education</a></li>
+            <li><a className={`nav-link ${activeSection === 'skills' ? 'is-active' : ''}`} href="#skills" onClick={closeMenu}>Skills</a></li>
+            <li><a className={`nav-link ${activeSection === 'projects' ? 'is-active' : ''}`} href="#projects" onClick={closeMenu}>Projects</a></li>
+            <li><a className={`nav-link ${activeSection === 'contact' ? 'is-active' : ''}`} href="#contact" onClick={closeMenu}>Contact</a></li>
           </ul>
         </nav>
       </div>
