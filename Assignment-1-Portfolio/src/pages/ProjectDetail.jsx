@@ -1,19 +1,47 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { projects } from '../data/projects';
 
 const ProjectDetail = () => {
-  // Extract the dynamic projectId parameter from the URL
   const { projectId } = useParams();
-  
-  // Look up the project (convert projectId from string to number)
-  const project = projects.find((p) => p.id === parseInt(projectId, 10));
+  const [project, setProject] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  if (!project) {
+  useEffect(() => {
+    const fetchProject = async () => {
+      try {
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/api/projects/${projectId}`);
+        if (response.status === 404) {
+          setError("Project Not Found");
+        } else if (!response.ok) {
+          throw new Error('Failed to fetch project details');
+        } else {
+          const data = await response.json();
+          setProject(data);
+        }
+      } catch (err) {
+        setError("Error: Backend server is unreachable.");
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchProject();
+  }, [projectId]);
+
+  if (isLoading) {
     return (
       <section className="section container" style={{ textAlign: 'center', minHeight: '60vh', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-        <h2>Project Not Found</h2>
-        <p style={{ margin: '2rem 0' }}>The requested project ID does not exist in our database.</p>
+        <p style={{ fontSize: '1.2rem', color: 'var(--color-primary)' }}>Loading project details...</p>
+      </section>
+    );
+  }
+
+  if (error) {
+    return (
+      <section className="section container" style={{ textAlign: 'center', minHeight: '60vh', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+        <h2>{error === "Project Not Found" ? "Project Not Found" : "Connection Error"}</h2>
+        <p style={{ margin: '2rem 0' }}>{error === "Project Not Found" ? "The requested project ID does not exist in our database." : error}</p>
         <Link to="/projects" className="btn btn-primary">Back to Projects</Link>
       </section>
     );

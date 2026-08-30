@@ -31,7 +31,7 @@ const ContactForm = () => {
     setErrors((prev) => ({ ...prev, [name]: errorMsg }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const newErrors = {};
     let isValid = true;
@@ -47,9 +47,30 @@ const ContactForm = () => {
     setErrors(newErrors);
 
     if (isValid) {
-      setIsSuccess(true);
-      setFormData({ name: '', email: '', subject: '', message: '' });
-      setTimeout(() => setIsSuccess(false), 5000);
+      try {
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/api/contact`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            message: formData.message
+          })
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          setIsSuccess(true);
+          setFormData({ name: '', email: '', subject: '', message: '' });
+          setTimeout(() => setIsSuccess(false), 5000);
+        } else {
+          // Display server-provided error message
+          setErrors(prev => ({ ...prev, message: data.error || "Server validation failed." }));
+        }
+      } catch (err) {
+        setErrors(prev => ({ ...prev, message: "Error: Could not reach the backend server." }));
+      }
     }
   };
 
@@ -156,8 +177,8 @@ const ContactForm = () => {
           <button className="btn btn-primary" type="submit">Send Message</button>
           
           {isSuccess && (
-            <p className="form-success" role="status">
-              Thank you! Your message has been validated and is ready for sending.
+            <p className="form-success" role="status" style={{ marginTop: '1rem', color: 'green', fontWeight: 'bold' }}>
+              Thank you! Your message has been sent successfully to the server.
             </p>
           )}
         </form>
