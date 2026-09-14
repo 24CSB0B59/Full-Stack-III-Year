@@ -1,0 +1,546 @@
+/* =========================================================================
+   Layout Structure & Responsive Grid Systems
+   Defines macro architectures for page landmarks using modern Flexbox and 
+   CSS Grid techniques without third-party layout libraries.
+   ========================================================================= */
+
+/* -------------------------------------------------------------------------
+   1. Header & Navigation Bar
+   ------------------------------------------------------------------------- */
+
+/* Sticky navbar remains docked at the very top of the window while user scrolls down */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: var(--header-height);
+  background: var(--color-surface-glass);
+  border-bottom: 1px solid var(--color-border);
+  backdrop-filter: blur(12px);         /* Frosted glassmorphism background blur */
+  -webkit-backdrop-filter: blur(12px); /* Safari support for background filter */
+}
+
+/* Flexbox container aligns logo on the left and interactive navigation links on the right */
+.header-inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+}
+
+/* Site logo / brand identity title link */
+.brand {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: none;
+  letter-spacing: normal;
+  display: flex;
+  align-items: center;
+  transition: color var(--transition-base);
+}
+
+.brand:hover {
+  color: var(--color-primary);
+}
+
+/* Navigation items container */
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Individual menu link formatting with active indicator support */
+.nav-link {
+  text-decoration: none;
+  color: var(--color-text-muted);
+  font-size: 0.925rem;
+  font-weight: 500;
+  position: relative;
+  transition: color var(--transition-base);
+}
+
+.nav-link:hover,
+.nav-link:focus-visible,
+.nav-link.is-active {
+  color: #ffffff; /* Brighten text on hover or when viewing the corresponding page section */
+}
+
+/* Mobile hamburger button - hidden on large desktop viewports by default */
+.nav-toggle {
+  display: none;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background: transparent;
+  cursor: pointer;
+  transition: border-color var(--transition-base), background var(--transition-base);
+}
+
+.nav-toggle:hover,
+.nav-toggle:focus-visible {
+  border-color: var(--color-border-hover);
+  background: var(--color-surface);
+}
+
+/* Horizontal animation lines inside the hamburger toggle button */
+.nav-toggle-bar {
+  display: block;
+  width: 1.25rem;
+  height: 2px;
+  margin: 0.22rem auto;
+  background: #ffffff;
+  border-radius: var(--radius-full);
+  transition: transform var(--transition-base), opacity var(--transition-base);
+}
+
+/* -------------------------------------------------------------------------
+   2. Hero Introduction Section
+   ------------------------------------------------------------------------- */
+
+/* Two-column layout grid: 1.3 fractional parts for intro text, 0.7 for developer avatar */
+.hero {
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  align-items: center;
+  gap: var(--space-2xl);
+  min-height: calc(85vh - var(--header-height)); /* Scale height to fit viewport naturally */
+  padding-top: var(--space-xl);
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+/* Fluid responsive title scaling across screen widths */
+.hero-title {
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  line-height: 1.15;
+  margin: 0;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.hero-subtitle {
+  font-size: clamp(1rem, 1.8vw, 1.2rem);
+  color: var(--color-text-muted);
+  font-weight: 400;
+  margin: 0;
+}
+
+/* Button group containing call-to-action links */
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  margin-top: var(--space-sm);
+}
+
+/* Framed card box around developer graphic profile illustration */
+.hero-image-container {
+  justify-self: center;
+  position: relative;
+  width: min(100%, 18rem);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  padding: var(--space-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-image {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-sm);
+  display: block;
+}
+
+/* -------------------------------------------------------------------------
+   3. About Me Section & Statistics Layout
+   ------------------------------------------------------------------------- */
+
+/* Two-column grid splitting narrative biographical summary from key statistic cards */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: var(--space-2xl);
+  align-items: start;
+}
+
+.about-text {
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+/* Stacked container holding highlight info cards on the right side */
+.about-highlights {
+  display: grid;
+  gap: var(--space-md);
+}
+
+.highlight-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  transition: border-color var(--transition-base), transform var(--transition-base);
+}
+
+.highlight-card:hover {
+  border-color: var(--color-border-hover);
+  transform: translateY(-2px); /* Slight upward lift on mouse hover to signal polished interactivity */
+}
+
+.highlight-card h3 {
+  color: #ffffff;
+  font-size: 1rem;
+  margin-bottom: 0.35rem;
+  font-weight: 600;
+}
+
+/* -------------------------------------------------------------------------
+   4. Education & Organizational Experience Section
+   ------------------------------------------------------------------------- */
+
+/* Asymmetric grid giving extra width (1.5fr) to degree specifics over leadership cards */
+.education-layout {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: var(--space-2xl);
+  align-items: start;
+}
+
+.edu-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+/* Category subsection dividing titles (Academic vs Leadership) */
+.edu-section-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 0;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: var(--space-xs);
+}
+
+.timeline-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  transition: border-color var(--transition-base);
+}
+
+.timeline-card:hover {
+  border-color: var(--color-border-hover);
+}
+
+/* Header line splitting institute title from graduation date span */
+.timeline-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin-bottom: 0.25rem;
+}
+
+.timeline-header h3 {
+  color: #ffffff;
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.timeline-date {
+  font-family: var(--font-mono);
+  font-size: 0.825rem;
+  color: var(--color-text-muted);
+}
+
+.timeline-subtitle {
+  color: #a1a1aa;
+  font-size: 0.925rem;
+  margin-bottom: var(--space-sm);
+}
+
+.timeline-card ul {
+  list-style: disc;
+  padding-left: 1.25rem;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.timeline-card li {
+  color: var(--color-text-muted);
+  font-size: 0.925rem;
+  line-height: 1.5;
+}
+
+.leadership-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.leadership-item {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md) var(--space-lg);
+  transition: border-color var(--transition-base);
+}
+
+.leadership-item:hover {
+  border-color: var(--color-border-hover);
+}
+
+.leadership-item h3 {
+  margin: 0 0 0.25rem 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.leadership-item p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+/* -------------------------------------------------------------------------
+   5. Technical Skills Matrix
+   ------------------------------------------------------------------------- */
+
+/* Three-column equal grid layout using minmax(0, 1fr) to prevent long tags from breaking column sizing */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-lg);
+}
+
+.skill-group {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  transition: border-color var(--transition-base);
+}
+
+.skill-group:hover {
+  border-color: var(--color-border-hover);
+}
+
+.skill-group h3 {
+  font-size: 1rem;
+  color: #ffffff;
+  font-weight: 600;
+  margin-bottom: var(--space-sm);
+}
+
+/* Flex wrap layout allowing tech tags to flow cleanly into multiple lines */
+.skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* -------------------------------------------------------------------------
+   6. Featured Engineering Projects Grid
+   ------------------------------------------------------------------------- */
+
+/* Three-column showcase grid for featured software build cards */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-xl);
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden; /* Restrict image overflow rounded card corners */
+  transition: transform var(--transition-base), border-color var(--transition-base);
+}
+
+/* Card hover animation raises item slightly off the page */
+.project-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-border-hover);
+}
+
+/* 16:9 widescreen aspect ratio wrapper ensures project thumbnail images match height uniformly */
+.project-image-wrapper {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  background: var(--color-surface-alt);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.project-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Maintain aspect proportions without distortion */
+}
+
+/* Flex body inside project cards pushes buttons cleanly to the very bottom line */
+.project-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  padding: var(--space-lg);
+  flex: 1;
+}
+
+.project-content h3 {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.project-description {
+  flex: 1;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Bottom action row containing interactive GitHub repository links */
+.project-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-top: 0.25rem;
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--color-border);
+}
+
+/* -------------------------------------------------------------------------
+   7. Contact Section & Direct Message Form
+   ------------------------------------------------------------------------- */
+
+/* Asymmetric grid layout gives wider column space to the message input form over side contact links */
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: var(--space-2xl);
+  align-items: start;
+}
+
+/* Left panel containing emails, phone number, and programming profiles */
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-xl);
+}
+
+.contact-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding-bottom: var(--space-sm);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.contact-item:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.contact-item h3 {
+  font-size: 0.825rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 0;
+}
+
+/* -------------------------------------------------------------------------
+   8. Bottom Site Footer
+   ------------------------------------------------------------------------- */
+
+/* Footer background using slightly darker slate than main body container */
+.site-footer {
+  background: #090b0f;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  padding-block: var(--space-2xl);
+  font-size: 0.9rem;
+}
+
+/* Align copyright notice left and auxiliary quick links right */
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-lg);
+}
+
+.footer-inner p {
+  margin: 0;
+  color: var(--color-text-muted);
+}
+
+.footer-links {
+  display: flex;
+  gap: var(--space-lg);
+}
+
+.footer-links a {
+  color: var(--color-text-muted);
+  text-decoration: none;
+  transition: color var(--transition-base);
+}
+
+.footer-links a:hover,
+.footer-links a:focus-visible {
+  color: #ffffff;
+}
+
+

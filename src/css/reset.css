@@ -1,0 +1,64 @@
+/* =========================================================================
+   CSS Reset & Browser Normalization
+   Removes inconsistent browser padding/margin defaults and sets up predictable
+   box-sizing calculations for layout grids and UI components.
+   ========================================================================= */
+
+/* Force all elements and pseudo-elements to include border and padding in their dimensions */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Zero out browser default margins and padding on all elements */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Enable smooth scrolling across anchor link jumps on the page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Ensure body spans full viewport height and set crisp readable font rendering */
+body {
+  min-height: 100vh;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Prevent image overflow and ensure responsive embedded media sizing */
+img,
+picture,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* Force form input elements to inherit font properties from parent containers */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Inherit text color on anchors rather than using browser default blues */
+a {
+  color: inherit;
+}
+
+/* Remove bullets and default spacing from lists (used in navigation and skills) */
+ul {
+  list-style: none;
+}
+
+/* Clear default button borders and backgrounds so custom components style cleanly */
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
