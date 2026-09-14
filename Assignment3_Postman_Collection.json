@@ -1,0 +1,239 @@
+{
+	"info": {
+		"_postman_id": "a1b2c3d4-e5f6-7890-1234-56789abcdef0",
+		"name": "Assignment 3 Backend Collection",
+		"description": "Collection covering all 7 backend tasks (B1-B7) including failure cases.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "B1: Health Check (GET /)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "B2: Get All Projects (GET /api/projects)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/projects",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"projects"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "B3: Get Single Project - SUCCESS",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/projects/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"projects",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "B3: Get Single Project - FAILURE (404 Not Found)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/projects/999",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"projects",
+						"999"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "B4: Submit Contact Form - SUCCESS (201 Created)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Test User\",\n    \"email\": \"test@example.com\",\n    \"message\": \"This is a valid test message.\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/contact",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"contact"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "B4: Submit Contact Form - FAILURE (400 Bad Request)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Test User\",\n    \"message\": \"I forgot my email address!\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/contact",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"contact"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "B5: Get All Submissions (GET /api/contact)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/contact",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"contact"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "B6: Global Catch-All 404 Route",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/this-route-does-not-exist",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"this-route-does-not-exist"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "B7: CORS Validation - Allowed Origin",
+			"request": {
+				"method": "OPTIONS",
+				"header": [
+					{
+						"key": "Origin",
+						"value": "http://localhost:5173"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5000/api/projects",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"projects"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "B7: CORS Validation - Blocked Origin",
+			"request": {
+				"method": "OPTIONS",
+				"header": [
+					{
+						"key": "Origin",
+						"value": "https://google.com"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5000/api/projects",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"projects"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
